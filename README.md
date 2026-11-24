@@ -12,6 +12,7 @@ A Chrome extension that turns music.youtube.com into a fullscreen, audio-reactiv
 - **Synced lyrics** (via LRCLIB), click any line to seek
 - Beat detection, mouse parallax, crossfades between tracks
 - Play, pause, previous, next and a seek bar inside the overlay
+- **Centered cover mode** (press C): a large album cover with the controls in the middle, handy for tracks without lyrics. Your choice is remembered
 
 ## Install (Windows, Chrome or Edge)
 
@@ -31,6 +32,7 @@ If the tab was already open when you installed the extension, refresh it once.
 | 1 to 7 | Switch scene |
 | T | Cycle lyric style |
 | L | Toggle lyrics |
+| C | Centered cover and controls (hides lyrics while on) |
 | A | Toggle ambient background |
 | F | Fullscreen |
 | Esc | Close |

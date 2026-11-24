@@ -9,7 +9,7 @@ import { loadFonts } from './fonts.js';
   if (window.__ytmiLoaded) return;
   window.__ytmiLoaded = true;
 
-  const DEFAULTS = { scene: 'nebula', lyricStyle: 'scroll', lyrics: true, ambient: true, gain: 1 };
+  const DEFAULTS = { scene: 'nebula', lyricStyle: 'scroll', lyrics: true, ambient: true, centerCover: false, gain: 1 };
   const settings = Object.assign({}, DEFAULTS);
   const audio = new AudioEngine();
 

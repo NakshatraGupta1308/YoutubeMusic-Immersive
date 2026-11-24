@@ -162,7 +162,7 @@
 .ytmi-ibtn:hover { background: rgba(255, 255, 255, 0.18); }
 .ytmi-ibtn svg { width: 20px; height: 20px; }
 .ytmi-ibtn.on { border-color: var(--a); }
-.ytmi-ibtn:not(.on)[data-act="lyrics"], .ytmi-ibtn:not(.on)[data-act="ambient"] { opacity: 0.55; }
+.ytmi-ibtn:not(.on)[data-act="lyrics"], .ytmi-ibtn:not(.on)[data-act="ambient"], .ytmi-ibtn:not(.on)[data-act="center"] { opacity: 0.55; }
 .ytmi-ibtn.big { width: 48px; height: 48px; background: rgba(255, 255, 255, 0.92); color: #000; }
 .ytmi-ibtn.big:hover { background: #fff; }
 .ytmi-ibtn.big svg { width: 24px; height: 24px; }
@@ -405,3 +405,35 @@
   .ytmi-dd-k { display: none; }
   .ytmi-ibtn[data-act="lyrics"] + .ytmi-ibtn { display: none; }
 }
+
+/* ---------- Centered cover mode ---------- */
+#ytmi-root.center-cover .ytmi-lyrics,
+#ytmi-root.center-cover .ytmi-fx { opacity: 0; pointer-events: none; visibility: hidden; }
+#ytmi-root.center-cover .ytmi-info {
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 3vh, 30px);
+  width: min(46vh, 80vw);
+  max-width: none;
+  animation: ytmi-pop 0.5s cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+#ytmi-root.center-cover .ytmi-cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: clamp(14px, 2.2vh, 24px);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.65), 0 0 120px -10px var(--a);
+}
+#ytmi-root.center-cover .ytmi-meta { width: 100%; flex: none; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), 0 2px 26px rgba(0, 0, 0, 0.9); }
+#ytmi-root.center-cover .ytmi-artist { opacity: 0.9; }
+#ytmi-root.center-cover .ytmi-title { font-size: clamp(22px, 3.4vh, 40px); }
+#ytmi-root.center-cover .ytmi-artist { font-size: clamp(14px, 2vh, 22px); }
+#ytmi-root.center-cover .ytmi-prog { margin-top: clamp(14px, 2.4vh, 24px); }
+#ytmi-root.center-cover .ytmi-transport { justify-content: center; gap: clamp(14px, 2vh, 22px); margin-top: clamp(14px, 2.4vh, 24px); }
+#ytmi-root.center-cover .ytmi-ibtn.big { width: clamp(52px, 7.5vh, 72px); height: clamp(52px, 7.5vh, 72px); }
+#ytmi-root.center-cover .ytmi-ibtn.big svg { width: 45%; height: 45%; }
+@keyframes ytmi-pop { from { opacity: 0; transform: translate(-50%, -48%) scale(0.97); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }

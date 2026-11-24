@@ -29,6 +29,7 @@ const ICON = {
   full: `<svg viewBox="0 0 24 24" ${S}><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>`,
   lyrics: `<svg viewBox="0 0 24 24" ${S}><path d="M4 7h16M4 12h10M4 17h13"/></svg>`,
   ambient: `<svg viewBox="0 0 24 24" ${S}><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>`,
+  center: `<svg viewBox="0 0 24 24" ${S}><rect x="6" y="4" width="12" height="12" rx="2"/><path d="M8 20h8"/></svg>`,
   caret: `<svg viewBox="0 0 24 24" ${S}><path d="M6 9l6 6 6-6"/></svg>`,
   play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
   pause: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>',
@@ -91,6 +92,7 @@ export class Overlay {
         <div class="ytmi-tools">
           <label class="ytmi-gain" title="Visual sensitivity"><span>Gain</span><input type="range" min="0.5" max="2" step="0.05"></label>
           <button class="ytmi-ibtn" data-act="lyrics" title="Lyrics (L)">${ICON.lyrics}</button>
+          <button class="ytmi-ibtn" data-act="center" title="Centered cover (C)">${ICON.center}</button>
           <button class="ytmi-ibtn" data-act="ambient" title="Ambient background (A)">${ICON.ambient}</button>
           <button class="ytmi-ibtn" data-act="full" title="Fullscreen (F)">${ICON.full}</button>
           <button class="ytmi-ibtn" data-act="close" title="Close (Esc)">${ICON.close}</button>
@@ -220,6 +222,8 @@ export class Overlay {
     if (!LYRIC_STYLES.some((x) => x.id === s.lyricStyle)) s.lyricStyle = 'scroll';
     this.root.classList.toggle('no-lyrics', !s.lyrics);
     this.root.classList.toggle('no-ambient', !s.ambient);
+    this.root.classList.toggle('center-cover', !!s.centerCover);
+    this.root.querySelector('[data-act="center"]').classList.toggle('on', !!s.centerCover);
     this.root.querySelector('[data-act="lyrics"]').classList.toggle('on', !!s.lyrics);
     this.root.querySelector('[data-act="ambient"]').classList.toggle('on', !!s.ambient);
     this.gainEl.value = String(s.gain);
@@ -244,6 +248,7 @@ export class Overlay {
     if (name === 'full') return this.toggleFullscreen();
     if (name === 'lyrics') s.lyrics = !s.lyrics;
     else if (name === 'ambient') s.ambient = !s.ambient;
+    else if (name === 'center') s.centerCover = !s.centerCover;
     else if (name === 'play') return clickPlayer('play');
     else if (name === 'next') return clickPlayer('next');
     else if (name === 'prev') return clickPlayer('prev');
@@ -290,6 +295,7 @@ export class Overlay {
     if (k === 'f') { this.toggleFullscreen(); return true; }
     if (k === 'l') { this.act('lyrics'); return true; }
     if (k === 'a') { this.act('ambient'); return true; }
+    if (k === 'c') { this.act('center'); return true; }
     if (k === 't') { this.cycleLyricStyle(); return true; }
     const n = parseInt(k, 10);
     if (n >= 1 && n <= SCENES.length) { this.setScene(SCENES[n - 1].id); return true; }
@@ -487,7 +493,7 @@ export class Overlay {
     if (this.renderer) {
       const sc = this.getScene();
       sc.update(this.time, dt);
-      const want = this.settings.lyrics && this.hasPanel && this.effStyle === 'scroll' && this.w > 900 ? 0.15 : 0;
+      const want = this.settings.lyrics && !this.settings.centerCover && this.hasPanel && this.effStyle === 'scroll' && this.w > 900 ? 0.15 : 0;
       this.shift += (want - this.shift) * (1 - Math.exp(-dt * 4));
       if (this.shift > 0.002) sc.camera.setViewOffset(this.w, this.h, Math.round(this.w * this.shift), 0, this.w, this.h);
       else sc.camera.clearViewOffset();
