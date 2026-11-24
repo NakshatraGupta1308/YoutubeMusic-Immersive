@@ -175,7 +175,7 @@ footer a:hover{text-decoration:underline}
     </div>
     <p class="meta mono">FREE &middot; OPEN SOURCE &middot; MIT LICENSE &middot; NO ACCOUNT</p>
     <div class="shot reveal">
-      <div class="frame"><img src="img/hero.webp" alt="YT Music Immersive showing kinetic lyrics over album-art ambience while a song plays" width="1800" height="1125"></div>
+      <div class="frame"><img src="img/hero.webp?v=3" alt="YT Music Immersive showing kinetic lyrics over album-art ambience while a song plays" width="1800" height="1125"></div>
     </div>
   </div>
 </header>
@@ -189,7 +189,7 @@ footer a:hover{text-decoration:underline}
     </div>
     <div class="reveal">
       <div class="chips" role="tablist" id="sceneChips"></div>
-      <div class="frame stage"><img id="sceneImg" src="img/scene-nebula.webp" alt="" width="1400" height="875"></div>
+      <div class="frame stage"><img id="sceneImg" src="img/scene-nebula.webp?v=3" alt="" width="1400" height="875"></div>
       <p class="caption" id="sceneCap"></p>
     </div>
   </div>
@@ -204,7 +204,7 @@ footer a:hover{text-decoration:underline}
     </div>
     <div class="reveal">
       <div class="chips" role="tablist" id="styleChips"></div>
-      <div class="frame stage"><img id="styleImg" src="img/style-scroll.webp" alt="" width="1400" height="875"></div>
+      <div class="frame stage"><img id="styleImg" src="img/style-scroll.webp?v=3" alt="" width="1400" height="875"></div>
       <p class="caption" id="styleCap"></p>
     </div>
   </div>
@@ -331,7 +331,7 @@ footer a:hover{text-decoration:underline}
       img.classList.add("fade");
       var n=new Image();
       n.onload=function(){img.src=n.src;img.alt=it[1]+" "+(prefix==="scene"?"scene":"lyric style");img.classList.remove("fade")};
-      n.src="img/"+prefix+"-"+it[0]+".webp";
+      n.src="img/"+prefix+"-"+it[0]+".webp?v=3";
       cap.innerHTML="<b>"+it[1]+".</b> "+it[2];
     }
     items.forEach(function(it,i){
