@@ -2,6 +2,8 @@
 
 A Chrome extension that turns music.youtube.com into a fullscreen, audio-reactive experience.
 
+**Website and download:** https://nakshatragupta1308.github.io/YoutubeMusic-Immersive/
+
 - **7 live 3D scenes** (three.js) in a Scene dropdown: Nebula (particle orb), Terrain (synthwave landscape), Pulse (radial rings), Tunnel (fly-through spectrum tube), Skyline (3D equalizer city), Crystal (displaced faceted gem), Aurora (flowing light ribbons)
 - **9 lyric styles** in a Text dropdown: Scroll, Karaoke (word fill), Slam (words crash in), Poster (stacked words on a color block), Echo (repeating outline stack), Outline Glitch (RGB split on beats), Ticker (sliding giant rows), Typewriter, Editorial (italic serif)
 - **Ambient background** built from the current album art, with accent colors pulled from the cover so every song looks different
@@ -66,6 +68,7 @@ Then press the reload icon for the extension on `chrome://extensions`.
 - `src/lyricfx.js` the lyric typography styles
 - `src/fonts.js` embedded fonts
 - `src/scenes/` the seven visualizer scenes
+- `docs/` the project website (served by GitHub Pages) and the downloadable extension zip
 
 ## Credits
 
