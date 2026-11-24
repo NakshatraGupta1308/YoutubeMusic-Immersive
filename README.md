@@ -11,9 +11,9 @@ A Chrome extension that turns music.youtube.com into a fullscreen, audio-reactiv
 
 ## Install (Windows, Chrome or Edge)
 
-1. Unzip this folder somewhere permanent (Chrome reads it from there each launch).
+1. Get the code: `git clone https://github.com/NakshatraGupta1308/YoutubeMusic-Immersive.git`, or use **Code > Download ZIP** on GitHub and unzip it. Keep the folder somewhere permanent, because Chrome reads it from there each launch.
 2. Open `chrome://extensions` and switch on **Developer mode** (top right).
-3. Click **Load unpacked** and choose the unzipped `ytm-immersive` folder.
+3. Click **Load unpacked** and choose the `YoutubeMusic-Immersive` folder (the one that contains `manifest.json`).
 4. Open https://music.youtube.com and play a song.
 5. Click the new bars icon in the player bar (bottom right), or press **Alt+V**.
 
@@ -65,4 +65,16 @@ Then press the reload icon for the extension on `chrome://extensions`.
 - `src/lyrics.js` LRC parsing
 - `src/lyricfx.js` the lyric typography styles
 - `src/fonts.js` embedded fonts
-- `src/scenes/` the three visualizer scenes
+- `src/scenes/` the seven visualizer scenes
+
+## Credits
+
+- [three.js](https://threejs.org) (MIT) for the 3D scenes
+- [LRCLIB](https://lrclib.net) for synced lyrics
+- Fonts from [Fontsource](https://fontsource.org) (SIL Open Font License)
+
+This is an unofficial project and is not affiliated with YouTube or Google.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
